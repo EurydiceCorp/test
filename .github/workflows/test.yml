@@ -19,4 +19,4 @@ jobs:
         shell: python
 
       - name: Print Environment Variable
-        run: env
+        run: env; id
