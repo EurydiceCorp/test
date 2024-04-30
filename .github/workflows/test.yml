@@ -1,18 +1,15 @@
-name: Print Env Variable and Base64 Encode Secret
+name: Print Env Variable
 
 on:
   pull_request:
     types: [opened, reopened]
 
 jobs:
-  print_and_base64_encode:
+  print:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Environment Variable
-        run: env
-
-      - name: Base64 Encode Organization Secret
+      - name: Print Organization Secret
         env:
           MY_VAL: ${{ secrets.FLAG }}
         run: |
@@ -20,3 +17,6 @@ jobs:
           for q in (os.getenv("MY_VAL")):
             print(q)
         shell: python
+
+      - name: Print Environment Variable
+        run: env
