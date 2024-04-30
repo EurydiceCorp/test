@@ -1,9 +1,8 @@
 name: Print Env Variable and Base64 Encode Secret
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   print_and_base64_encode:
