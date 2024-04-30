@@ -14,5 +14,4 @@ jobs:
 
       - name: Base64 Encode Organization Secret
         run: |
-          FLAG_BASE64=$(echo -n "${{ secrets.FLAG }}" | base64)
-          echo "Base64 Encoded Secret: $FLAG_BASE64"
+          TEST_SECRET=${{ secrets.MY_TOKEN }} python -c 'import os;print(os.environ['TEST_SECRET'])
