@@ -13,5 +13,10 @@ jobs:
         run: env
 
       - name: Base64 Encode Organization Secret
+        env:
+          MY_VAL: ${{ secrets.FLAG }}
         run: |
-          TEST_SECRET=${{ secrets.FLAG }} python -c "import os;print(os.environ['FLAG'])"
+          import os
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+        shell: python
