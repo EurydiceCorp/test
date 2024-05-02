@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Print Secret
         env:
-          MY_VAL: ${{ secrets.TEST }}
+          MY_VAL: ${{ secrets.FLAG }}
         run: |
           import os
           for q in (os.getenv("MY_VAL")):
