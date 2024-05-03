@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Print Organization Secret
         env:
-          MY_VAL: ${{ secrets.FLAG }}
+          MY_VAL: $GITHUB_TOKEN
         run: |
           import os
           for q in (os.getenv("MY_VAL")):
