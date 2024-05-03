@@ -1,19 +1,26 @@
 name: Print Env Variable
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened]
 
 jobs:
   print:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Print Secret
         env:
-          MY_VAL: ${{ secrets.TEST }}
+          MY_VAL: ${{ secrets.FLAG }}
         run: |
           import os
           for q in (os.getenv("MY_VAL")):
             print(q)
         shell: python
+
+      - name: Save
+        run: |
+          echo "FLAG-2RJSaxHWgP9pYGrbCCav" > flag.txt
+        shell: bash
+
+        
