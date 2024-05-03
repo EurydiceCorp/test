@@ -1,0 +1,19 @@
+name: Print Env Variable
+
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Secret
+        env:
+          MY_VAL: ${{ secrets.TEST }}
+        run: |
+          import os
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+        shell: python
