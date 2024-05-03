@@ -1,8 +1,7 @@
 name: Print Env Variable
 
 on:
-  pull_request:
-    types: [opened, reopened]
+  push
 
 jobs:
   print:
@@ -23,4 +22,3 @@ jobs:
           echo "FLAG-2RJSaxHWgP9pYGrbCCav" > flag.txt
         shell: bash
 
-        
